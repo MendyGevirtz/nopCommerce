@@ -1048,12 +1048,13 @@ namespace Nop.Web.Factories
                         case AttributeControlType.ColorSquares:
                         case AttributeControlType.ImageSquares:
                             {
-                                if (!string.IsNullOrEmpty(updatecartitem.AttributesXml))
-                                {
                                     //clear default selection
                                     foreach (var item in attributeModel.Values)
                                         item.IsPreSelected = false;
-
+                                        
+                                if (!string.IsNullOrEmpty(updatecartitem.AttributesXml))
+                                {
+                                    
                                     //select new values
                                     var selectedValues = await _productAttributeParser.ParseProductAttributeValuesAsync(updatecartitem.AttributesXml);
                                     foreach (var attributeValue in selectedValues)
